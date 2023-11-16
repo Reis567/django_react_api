@@ -8,4 +8,4 @@ class ProfissinalAPI(APIView):
     def get(self, request , format=None):
         profissionais = Profissional.objects.all()
         serializer = ProfissionalSerializer(profissionais, many=True)
-        return Response
+        return Response(serializer.data)
