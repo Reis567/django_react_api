@@ -13,3 +13,8 @@ class CadastrarJobSerializer(serializers.ModelSerializer):
     nome = serializers.CharField(max_lenght=100)
     email = serializers.EmailField(max_lenght=255)
 
+
+class JobSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Job
+        fields = "__all__"
