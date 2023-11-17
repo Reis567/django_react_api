@@ -29,3 +29,7 @@ class CadastrarJobAPI(APIView):
                 job_serializer.data,
                 status=HTTP_201_CREATED
             )
+        
+        else:
+            serializer.errors,
+            status=HTTP_400_BAD_REQUEST
