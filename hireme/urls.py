@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from projeto.views import ProfissinalAPI
+from projeto.views import ProfissinalAPI,CadastrarJobAPI
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('profissionais/',ProfissinalAPI.as_view())
+    path('profissionais/',ProfissinalAPI.as_view()),
+    path('profissional/<int:id>/job',CadastrarJobAPI.as_view())
 ]

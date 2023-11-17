@@ -13,6 +13,8 @@ class ProfissinalAPI(APIView):
         profissionais = Profissional.objects.all()
         serializer = ProfissionalSerializer(profissionais, many=True)
         return Response(serializer.data, status=HTTP_200_OK)
+    
+    
 class CadastrarJobAPI(APIView):
     def post(self, request , id , format=None):
         profissional = get_object_or_404(profissional , id=id)
