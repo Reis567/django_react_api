@@ -9,9 +9,9 @@ class ProfissionalSerializer(serializers.ModelSerializer ):
         fields = '__all__'
 
 
-class CadastrarJobSerializer(serializers.ModelSerializer):
-    nome = serializers.CharField(max_lenght=100)
-    email = serializers.EmailField(max_lenght=255)
+class CadastrarJobSerializer(serializers.Serializer):
+    nome = serializers.CharField(max_length=100)
+    email = serializers.EmailField(max_length=255)
 
 
 class JobSerializer(serializers.ModelSerializer):
