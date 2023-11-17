@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework.views import APIView , Response
 from projeto.models import Profissional,Job
-from projeto.serializer import ProfissionalSerializer,CadastrarJobSerializer
-from rest_framework.status import HTTP_200_OK
+from projeto.serializer import ProfissionalSerializer,CadastrarJobSerializer,JobSerializer
+from rest_framework.status import HTTP_200_OK,HTTP_201_CREATED,HTTP_400_BAD_REQUEST
 from django.shortcuts import get_object_or_404
 
 
@@ -22,4 +22,10 @@ class CadastrarJobAPI(APIView):
                 nome = serializer.validated_data.get('nome'),
                 email = serializer.validated_data.get('email'),
                 profissional = profissional
+            )
+            job.save()
+            job_serializer = JobSerializer(job, many=False)
+            return Response(
+                job_serializer.data,
+                status=HTTP_201_CREATED
             )
